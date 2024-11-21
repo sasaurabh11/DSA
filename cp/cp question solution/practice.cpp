@@ -41,56 +41,10 @@ struct custom_hash {
     }
 };
 
-string a, b;
-ll n, k, ans;
-unordered_map<char, ll> indexes;
-
 void saurabh()
 {
-    cin >> n >> k;
-    cin >> a >> b;
-
-    debug(n, k, a, b);
-
-    set<char> st(a.begin(), a.end());
-    vector<char> templ(st.begin(), st.end());
-
-    indexes.clear();
-    for(ll i = 0; i < templ.size(); i++) indexes[templ[i]] = i;
-
-    ans = 0;
-
-    ll cnt = 0, tempans = 0;
-    for(ll i = 0; i < n; i++) {
-        if(a[i] == b[i]) cnt++;
-        else {
-            tempans += (cnt * (cnt + 1)) / 2;
-            cnt = 0;
-        }
-    }
-
-    tempans += (cnt * (cnt + 1)) / 2;
-    ans = max(ans, tempans);
-
-    for(ll mask = 0; mask < (1LL << 10); mask++) {
-        if(__builtin_popcount(mask) > k) continue;
-        ll cnt = 0, tempans = 0;
-
-        for(ll j = 0; j < n; j++) {
-            ll idx = indexes[a[j]];
-
-            if(a[j] == b[j] || (mask & (1LL << idx))) cnt++;
-            else {
-                tempans += (cnt * (cnt + 1)) / 2;
-                cnt = 0;
-            }
-        }
-
-        tempans += (cnt * (cnt + 1)) / 2;
-        ans = max(ans, tempans);
-    }
-
-    cout << ans << endl;
+    ll n; cin >> n;
+    cout << "HELLO WORLD" << endl; 
 }
 
 int main()
